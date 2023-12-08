@@ -4,7 +4,8 @@
   "info": {
     "singularName": "category",
     "pluralName": "categories",
-    "displayName": "categories"
+    "displayName": "categories",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,15 @@
   "attributes": {
     "categoryName": {
       "type": "string"
+    },
+    "categorias_pai": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    },
+    "iconcat": {
+      "type": "customField",
+      "customField": "plugin::react-icons.icon"
     }
   }
 }

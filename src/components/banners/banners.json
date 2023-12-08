@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_banners_banners",
+  "info": {
+    "displayName": "banners",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "single_small_banner": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "single_small_banner_url": {
+      "type": "string"
+    }
+  }
+}

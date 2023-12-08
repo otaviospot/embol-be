@@ -6,5 +6,6 @@ module.exports = ({ env }) => ({
       // See `Config` section.
     },
   },
+  "react-icons": true,
   //...
 });
