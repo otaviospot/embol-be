@@ -733,8 +733,18 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    categoryName: Attribute.String;
+    categoryName: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     categorias_pai: Attribute.Relation<
       'api::category.category',
       'oneToMany',
@@ -753,6 +763,42 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::category.category'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiContatoContato extends Schema.SingleType {
+  collectionName: 'contatos';
+  info: {
+    singularName: 'contato';
+    pluralName: 'contatos';
+    displayName: 'Contato';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    text: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contato.contato',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contato.contato',
       'oneToOne',
       'admin::user'
     > &
@@ -860,6 +906,39 @@ export interface ApiProdutoProduto extends Schema.CollectionType {
   };
 }
 
+export interface ApiQuemsomosQuemsomos extends Schema.SingleType {
+  collectionName: 'quem_somos';
+  info: {
+    singularName: 'quemsomos';
+    pluralName: 'quem-somos';
+    displayName: 'Quem Somos';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    texto: Attribute.Blocks;
+    default_image: Attribute.Media;
+    texto2: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::quemsomos.quemsomos',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::quemsomos.quemsomos',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -878,8 +957,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::category.category': ApiCategoryCategory;
+      'api::contato.contato': ApiContatoContato;
       'api::home.home': ApiHomeHome;
       'api::produto.produto': ApiProdutoProduto;
+      'api::quemsomos.quemsomos': ApiQuemsomosQuemsomos;
     }
   }
 }

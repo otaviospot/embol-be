@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "quem_somos",
+  "info": {
+    "singularName": "quemsomos",
+    "pluralName": "quem-somos",
+    "displayName": "Quem Somos",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "texto": {
+      "type": "blocks"
+    },
+    "default_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "texto2": {
+      "type": "richtext"
+    }
+  }
+}
