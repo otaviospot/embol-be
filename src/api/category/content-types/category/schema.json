@@ -24,10 +24,17 @@
         }
       }
     },
-    "categorias_pai": {
+    "categorias_pais": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category.category"
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "category_children"
+    },
+    "category_children": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "categorias_pais"
     },
     "iconcat": {
       "type": "customField",

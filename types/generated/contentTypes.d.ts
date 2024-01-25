@@ -745,9 +745,14 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    categorias_pai: Attribute.Relation<
+    categorias_pais: Attribute.Relation<
       'api::category.category',
-      'oneToMany',
+      'manyToMany',
+      'api::category.category'
+    >;
+    category_children: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
       'api::category.category'
     >;
     iconcat: Attribute.String &
