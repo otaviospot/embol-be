@@ -20,21 +20,7 @@
       "multiple": false,
       "required": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "image_gallery": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
     },
     "sku": {
@@ -47,10 +33,25 @@
       "type": "uid",
       "targetField": "sku"
     },
-    "category": {
+    "categories": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::category.category"
+    },
+    "menor_unidade": {
+      "type": "string"
+    },
+    "unidade_intermediaria": {
+      "type": "string"
+    },
+    "maior_unidade": {
+      "type": "string"
+    },
+    "peso_bruto": {
+      "type": "string"
+    },
+    "fabricante": {
+      "type": "string"
     }
   }
 }
