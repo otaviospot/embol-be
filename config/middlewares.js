@@ -11,7 +11,10 @@ module.exports = [
   {
     name: "strapi::cors",
     config: {
-      origin: ["https://sites.newbasca.com"],
+      origin: [
+        "https://sites.newbasca.com",
+        "https://embol-yzffe.ondigitalocean.app",
+      ],
     },
   },
   // ... outros middlewares ...
