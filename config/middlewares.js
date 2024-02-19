@@ -14,6 +14,8 @@ module.exports = [
       origin: [
         "https://sites.newbasca.com",
         "https://embol-yzffe.ondigitalocean.app",
+        "http://localhost:1337",
+        "http://localhost:3000",
       ],
     },
   },

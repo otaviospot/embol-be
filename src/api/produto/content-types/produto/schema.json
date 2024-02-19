@@ -52,6 +52,21 @@
     },
     "fabricante": {
       "type": "string"
+    },
+    "ncm": {
+      "type": "string"
+    },
+    "externallink_prod": {
+      "type": "string"
+    },
+    "medida_menor_unidade": {
+      "type": "string"
+    },
+    "medida_unidade_intermediaria": {
+      "type": "string"
+    },
+    "medida_maior_unidade": {
+      "type": "string"
     }
   }
 }

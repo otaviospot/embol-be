@@ -897,6 +897,11 @@ export interface ApiProdutoProduto extends Schema.CollectionType {
     maior_unidade: Attribute.String;
     peso_bruto: Attribute.String;
     fabricante: Attribute.String;
+    ncm: Attribute.String;
+    externallink_prod: Attribute.String;
+    medida_menor_unidade: Attribute.String;
+    medida_unidade_intermediaria: Attribute.String;
+    medida_maior_unidade: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
