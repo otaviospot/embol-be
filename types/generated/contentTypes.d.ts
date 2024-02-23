@@ -935,6 +935,8 @@ export interface ApiQuemsomosQuemsomos extends Schema.SingleType {
     texto: Attribute.Blocks;
     default_image: Attribute.Media;
     texto2: Attribute.RichText;
+    lojas_embol: Attribute.Component<'lojas.lojas', true>;
+    lojas_embol_mais: Attribute.Component<'lojas.lojas', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

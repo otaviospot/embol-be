@@ -28,6 +28,16 @@
     },
     "texto2": {
       "type": "richtext"
+    },
+    "lojas_embol": {
+      "type": "component",
+      "repeatable": true,
+      "component": "lojas.lojas"
+    },
+    "lojas_embol_mais": {
+      "type": "component",
+      "repeatable": true,
+      "component": "lojas.lojas"
     }
   }
 }

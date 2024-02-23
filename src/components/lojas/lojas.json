@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_lojas_lojas",
+  "info": {
+    "displayName": "Lojas",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "endereco": {
+      "type": "string"
+    },
+    "cidade_estado": {
+      "type": "string"
+    },
+    "telefone": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}
