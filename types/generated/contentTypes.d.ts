@@ -884,9 +884,8 @@ export interface ApiProdutoProduto extends Schema.CollectionType {
   attributes: {
     name_product: Attribute.String;
     default_image: Attribute.Media;
-    sku: Attribute.String;
     product_description: Attribute.RichText;
-    productId: Attribute.UID<'api::produto.produto', 'sku'>;
+    productId: Attribute.UID;
     categories: Attribute.Relation<
       'api::produto.produto',
       'oneToMany',
@@ -902,6 +901,9 @@ export interface ApiProdutoProduto extends Schema.CollectionType {
     medida_menor_unidade: Attribute.String;
     medida_unidade_intermediaria: Attribute.String;
     medida_maior_unidade: Attribute.String;
+    sku_menor_unidade: Attribute.String;
+    sku_unidade_intermediaria: Attribute.String;
+    sku_maior_unidade: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

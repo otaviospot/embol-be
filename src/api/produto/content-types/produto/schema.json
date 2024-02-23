@@ -23,15 +23,11 @@
         "images"
       ]
     },
-    "sku": {
-      "type": "string"
-    },
     "product_description": {
       "type": "richtext"
     },
     "productId": {
-      "type": "uid",
-      "targetField": "sku"
+      "type": "uid"
     },
     "categories": {
       "type": "relation",
@@ -66,6 +62,15 @@
       "type": "string"
     },
     "medida_maior_unidade": {
+      "type": "string"
+    },
+    "sku_menor_unidade": {
+      "type": "string"
+    },
+    "sku_unidade_intermediaria": {
+      "type": "string"
+    },
+    "sku_maior_unidade": {
       "type": "string"
     }
   }
