@@ -879,7 +879,7 @@ export interface ApiProdutoProduto extends Schema.CollectionType {
     description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     name_product: Attribute.String;
@@ -906,7 +906,6 @@ export interface ApiProdutoProduto extends Schema.CollectionType {
     sku_maior_unidade: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::produto.produto',
       'oneToOne',
