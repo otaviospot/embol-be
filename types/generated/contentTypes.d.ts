@@ -362,6 +362,240 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'categories';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    categoryName: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    categorias_pais: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::category.category'
+    >;
+    category_children: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::category.category'
+    >;
+    iconcat: Attribute.String &
+      Attribute.CustomField<'plugin::react-icons.icon'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::category.category'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiContatoContato extends Schema.SingleType {
+  collectionName: 'contatos';
+  info: {
+    singularName: 'contato';
+    pluralName: 'contatos';
+    displayName: 'Contato';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    text: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contato.contato',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contato.contato',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomeHome extends Schema.SingleType {
+  collectionName: 'homes';
+  info: {
+    singularName: 'home';
+    pluralName: 'homes';
+    displayName: 'Home';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    home_slider: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    mini_banners: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    produtos: Attribute.Relation<
+      'api::home.home',
+      'oneToMany',
+      'api::produto.produto'
+    >;
+    small_banners: Attribute.Component<'banners.banners', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMax<{
+        max: 3;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::home.home',
+      'oneToMany',
+      'api::home.home'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiProdutoProduto extends Schema.CollectionType {
+  collectionName: 'products';
+  info: {
+    singularName: 'produto';
+    pluralName: 'products';
+    displayName: 'produtos';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name_product: Attribute.String;
+    default_image: Attribute.Media;
+    product_description: Attribute.RichText;
+    productId: Attribute.UID;
+    categories: Attribute.Relation<
+      'api::produto.produto',
+      'oneToMany',
+      'api::category.category'
+    >;
+    menor_unidade: Attribute.String;
+    unidade_intermediaria: Attribute.String;
+    maior_unidade: Attribute.String;
+    peso_bruto: Attribute.String;
+    fabricante: Attribute.String;
+    ncm: Attribute.String;
+    externallink_prod: Attribute.String;
+    medida_menor_unidade: Attribute.String;
+    medida_unidade_intermediaria: Attribute.String;
+    medida_maior_unidade: Attribute.String;
+    sku_menor_unidade: Attribute.String;
+    sku_unidade_intermediaria: Attribute.String;
+    sku_maior_unidade: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::produto.produto',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::produto.produto',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiQuemsomosQuemsomos extends Schema.SingleType {
+  collectionName: 'quem_somos';
+  info: {
+    singularName: 'quemsomos';
+    pluralName: 'quem-somos';
+    displayName: 'Quem Somos';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    texto: Attribute.Blocks;
+    default_image: Attribute.Media;
+    texto2: Attribute.RichText;
+    lojas_embol: Attribute.Component<'lojas.lojas', true>;
+    lojas_embol_mais: Attribute.Component<'lojas.lojas', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::quemsomos.quemsomos',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::quemsomos.quemsomos',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -722,240 +956,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiCategoryCategory extends Schema.CollectionType {
-  collectionName: 'categories';
-  info: {
-    singularName: 'category';
-    pluralName: 'categories';
-    displayName: 'categories';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    categoryName: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    categorias_pais: Attribute.Relation<
-      'api::category.category',
-      'manyToMany',
-      'api::category.category'
-    >;
-    category_children: Attribute.Relation<
-      'api::category.category',
-      'manyToMany',
-      'api::category.category'
-    >;
-    iconcat: Attribute.String &
-      Attribute.CustomField<'plugin::react-icons.icon'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::category.category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::category.category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::category.category',
-      'oneToMany',
-      'api::category.category'
-    >;
-    locale: Attribute.String;
-  };
-}
-
-export interface ApiContatoContato extends Schema.SingleType {
-  collectionName: 'contatos';
-  info: {
-    singularName: 'contato';
-    pluralName: 'contatos';
-    displayName: 'Contato';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    text: Attribute.RichText;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::contato.contato',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::contato.contato',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiHomeHome extends Schema.SingleType {
-  collectionName: 'homes';
-  info: {
-    singularName: 'home';
-    pluralName: 'homes';
-    displayName: 'Home';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    home_slider: Attribute.Media &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    mini_banners: Attribute.Media &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    produtos: Attribute.Relation<
-      'api::home.home',
-      'oneToMany',
-      'api::produto.produto'
-    >;
-    small_banners: Attribute.Component<'banners.banners', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.SetMinMax<{
-        max: 3;
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::home.home',
-      'oneToMany',
-      'api::home.home'
-    >;
-    locale: Attribute.String;
-  };
-}
-
-export interface ApiProdutoProduto extends Schema.CollectionType {
-  collectionName: 'products';
-  info: {
-    singularName: 'produto';
-    pluralName: 'products';
-    displayName: 'produtos';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    name_product: Attribute.String;
-    default_image: Attribute.Media;
-    product_description: Attribute.RichText;
-    productId: Attribute.UID;
-    categories: Attribute.Relation<
-      'api::produto.produto',
-      'oneToMany',
-      'api::category.category'
-    >;
-    menor_unidade: Attribute.String;
-    unidade_intermediaria: Attribute.String;
-    maior_unidade: Attribute.String;
-    peso_bruto: Attribute.String;
-    fabricante: Attribute.String;
-    ncm: Attribute.String;
-    externallink_prod: Attribute.String;
-    medida_menor_unidade: Attribute.String;
-    medida_unidade_intermediaria: Attribute.String;
-    medida_maior_unidade: Attribute.String;
-    sku_menor_unidade: Attribute.String;
-    sku_unidade_intermediaria: Attribute.String;
-    sku_maior_unidade: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::produto.produto',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::produto.produto',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiQuemsomosQuemsomos extends Schema.SingleType {
-  collectionName: 'quem_somos';
-  info: {
-    singularName: 'quemsomos';
-    pluralName: 'quem-somos';
-    displayName: 'Quem Somos';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    texto: Attribute.Blocks;
-    default_image: Attribute.Media;
-    texto2: Attribute.RichText;
-    lojas_embol: Attribute.Component<'lojas.lojas', true>;
-    lojas_embol_mais: Attribute.Component<'lojas.lojas', true>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::quemsomos.quemsomos',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::quemsomos.quemsomos',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -966,6 +966,11 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::category.category': ApiCategoryCategory;
+      'api::contato.contato': ApiContatoContato;
+      'api::home.home': ApiHomeHome;
+      'api::produto.produto': ApiProdutoProduto;
+      'api::quemsomos.quemsomos': ApiQuemsomosQuemsomos;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::react-icons.iconlibrary': PluginReactIconsIconlibrary;
@@ -973,11 +978,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::category.category': ApiCategoryCategory;
-      'api::contato.contato': ApiContatoContato;
-      'api::home.home': ApiHomeHome;
-      'api::produto.produto': ApiProdutoProduto;
-      'api::quemsomos.quemsomos': ApiQuemsomosQuemsomos;
     }
   }
 }
