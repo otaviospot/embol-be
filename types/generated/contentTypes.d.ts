@@ -727,7 +727,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   info: {
     singularName: 'category';
     pluralName: 'categories';
-    displayName: 'categorias';
+    displayName: 'Categorias';
     description: '';
   };
   options: {
@@ -833,12 +833,6 @@ export interface ApiHomeHome extends Schema.SingleType {
           localized: true;
         };
       }>;
-    mini_banners: Attribute.Media &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     produtos: Attribute.Relation<
       'api::home.home',
       'oneToMany',
@@ -874,7 +868,7 @@ export interface ApiProdutoProduto extends Schema.CollectionType {
   info: {
     singularName: 'produto';
     pluralName: 'products';
-    displayName: 'produtos';
+    displayName: 'Produtos';
     description: '';
   };
   options: {
@@ -932,7 +926,6 @@ export interface ApiQuemsomosQuemsomos extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    texto: Attribute.Blocks;
     default_image: Attribute.Media;
     texto2: Attribute.RichText;
     lojas_embol: Attribute.Component<'lojas.lojas', true>;

@@ -32,22 +32,6 @@
         }
       }
     },
-    "mini_banners": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "produtos": {
       "type": "relation",
       "relation": "oneToMany",

@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "texto": {
-      "type": "blocks"
-    },
     "default_image": {
       "type": "media",
       "multiple": false,
