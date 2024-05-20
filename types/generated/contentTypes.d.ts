@@ -727,7 +727,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   info: {
     singularName: 'category';
     pluralName: 'categories';
-    displayName: 'categories';
+    displayName: 'categorias';
     description: '';
   };
   options: {
